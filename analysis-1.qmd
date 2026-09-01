@@ -1,7 +1,30 @@
 ---
-title: "Analysis 1"
+title: "A Beautiful Graphic"
 Author: "Lilly Goode"
 format: html
 ---
 
 Lilly Goode is a data maestro!
+  execute: echo: false
+
+```{#| message: false}
+
+```
+
+```{r}
+#| label: ai-generated-plot
+#| message: false
+
+library(ggplot2)
+
+ggplot(mtcars, aes(x = wt, y = mpg, color = factor(cyl))) +
+  geom_point(size = 3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "Fuel efficiency vs. weight by cylinder count",
+    x = "Weight (1000 lbs)",
+    y = "Miles per gallon",
+    color = "Cylinders"
+  ) +
+  theme_minimal()
+```
